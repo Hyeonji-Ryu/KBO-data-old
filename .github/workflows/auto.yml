@@ -1,0 +1,32 @@
+name: auto-scraping KBOdata
+
+on:
+  schedule:
+#    - cron: '45 14 * * *'
+    - cron: '5 2 * * *'
+    # UST 가 default. 한국 시간으로 오전 11시 5분 실행
+
+jobs:
+  build-linux:
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 1
+      matrix:
+        python-version: [3.9]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python {{ matrix.python-version }}
+      uses: actions/setup-python@v1
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install python package
+      run: |
+        pip install -r requirements.txt
+        pip install kbodata
+    - name: Setup Chromedriver
+      uses: nanasess/setup-chromedriver@v1.0.1
+    - name: Build
+      run: |
+        cd kbo_data
+        python actions.py ${{secrets.DB_INFO}}
