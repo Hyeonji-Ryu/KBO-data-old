@@ -18,7 +18,7 @@ if __name__ == "__main__":
         batter = kbodata.batter_to_Dict(data)
         pitcher = kbodata.pitcher_to_Dict(data)
         print("데이터 변환이 완료되었습니다.")
-        DB_URL = sys.argv[1]
+        DB_URL = str(sys.argv[1])
     
         engine = db.create_engine(DB_URL)
         connection = engine.connect()
