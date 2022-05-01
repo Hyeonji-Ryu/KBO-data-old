@@ -7,6 +7,7 @@ import sqlalchemy as db
 if __name__ == "__main__":
     before_2days = date.today() - timedelta(2)
     schedule = kbodata.get_daily_schedule(before_2days.year,before_2days.month,before_2days.day,"chromedriver")
+    print(before_2days)
 
     if len(schedule) == 0:
         print("이틀 전 경기 데이터가 없습니다.")
