@@ -28,4 +28,4 @@ jobs:
     - name: Build
       run: |
         cd kbo_data
-        python -u actions.py ${{secrets.DB_INFO}}
+        python actions.py ${{secrets.DB_INFO}}
