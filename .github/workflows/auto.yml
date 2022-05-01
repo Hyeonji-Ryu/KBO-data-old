@@ -2,7 +2,6 @@ name: auto-scraping KBOdata
 
 on:
   schedule:
-#    - cron: '45 14 * * *'
     - cron: '5 4 * * *'
     # UST 가 default. 한국 시간으로 오후 1시 5분 실행
 
