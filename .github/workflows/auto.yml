@@ -3,7 +3,7 @@ name: auto-scraping KBOdata
 on:
   schedule:
     - cron: '40 4 * * *'
-    # UST 가 default. 한국 시간으로 오후 1시 5분 실행
+    # UST 가 default. 한국 시간으로 오후 1시 40분 실행
   workflow_dispatch:
       inputs:
          logLevel:
